@@ -1,0 +1,167 @@
+%----------------------------------------------------------------------------------------
+%
+% A LaTeX-template for 1DV510. Modified and translated by Björn Lindenberg at LNU.
+% Based on an original master thesis template created by Marcus Wilhelmsson at LNU.
+%
+%----------------------------------------------------------------------------------------
+
+% Settings and document configuration
+
+\documentclass[a4paper,12pt]{article} 
+\usepackage[T1]{fontenc} 
+\usepackage{times} 
+\usepackage[swedish,english]{babel} 
+\usepackage[utf8]{inputenc} 
+\usepackage{dtk-logos} 
+\usepackage{wallpaper} 
+\usepackage[absolute]{textpos} 
+\usepackage[top=2cm, bottom=2.5cm, left=3cm, right=3cm]{geometry} 
+\usepackage[parfill]{parskip} 
+\usepackage{csquotes} 
+\usepackage{float} 
+\usepackage{lipsum} % Used for dummy text. Can be removed.
+\usepackage{listings, color}
+
+\lstdefinestyle{Asm}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{purple!40!black},
+  commentstyle=\itshape\color{green!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+% Fontsizes for section headings.
+\usepackage{sectsty} 
+\sectionfont{\fontsize{14}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\subsubsectionfont{\fontsize{12}{15}\selectfont}
+
+%----------------------------------------------------------------------------------------
+%	This part is used for the text box on the title page
+%----------------------------------------------------------------------------------------
+\newsavebox{\mybox}
+\newlength{\mydepth}
+\newlength{\myheight}
+
+\newenvironment{sidebar}%
+{\begin{lrbox}{\mybox}\begin{minipage}{\textwidth}}%
+{\end{minipage}\end{lrbox}%
+ \settodepth{\mydepth}{\usebox{\mybox}}%
+ \settoheight{\myheight}{\usebox{\mybox}}%
+ \addtolength{\myheight}{\mydepth}%
+ \noindent\makebox[0pt]{\hspace{-20pt}\rule[-\mydepth]{1pt}{\myheight}}%
+ \usebox{\mybox}}
+
+%----------------------------------------------------------------------------------------
+%	Title
+%----------------------------------------------------------------------------------------
+\newcommand\BackgroundPic{
+    \put(-2,-3){
+    \includegraphics[keepaspectratio,scale=0.3]{img/lnu_etch.png} % Background image
+    }
+}
+\newcommand\BackgroundPicLogo{
+    \put(30,740){
+    \includegraphics[keepaspectratio,scale=0.10]{img/logo.png} % LNU logo
+    }
+}
+
+\title{
+\vspace{-8cm}
+\begin{sidebar}
+    \vspace{10cm}
+    \normalfont \normalsize
+    \huge Computer Technology I\\ % Main title
+    \vspace{-1.3cm}
+\end{sidebar}
+\vspace{3cm}
+\begin{flushleft}
+    \huge Lab. 1 : How to use the PORTs, Digital input/output, Subroutine call % Subtitle
+     \small \\ \emph{}
+\end{flushleft}
+\null
+\vfill
+\begin{textblock}{5}(10,13)
+\begin{flushright}
+\begin{minipage}{\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\textsc{}\\  % Author
+\emph{Supervisor:}  \textsc{} \\  % Author
+\emph{Semester:} Autumn 2019\\ % Semester
+\emph{Area:} Computer Science \\ % Area
+\emph{Course code:} 1DT301 % Course
+\end{flushleft}
+\end{minipage}
+\end{flushright}
+\end{textblock}
+}
+
+\date{} % Empty date command. Use \today inside for today's date.
+\author{} % Normally one would use this to define authors. However in this case the title command takes care of everything, so we leave the field empty to get rid of warnings. 
+
+\begin{document}
+
+\pagenumbering{gobble} % Turn off page numbering
+\newgeometry{left=5cm}
+\AddToShipoutPicture*{\BackgroundPic} % Adds the background image to the title page
+\AddToShipoutPicture*{\BackgroundPicLogo} % Adds the logo to the title page
+\maketitle % Prints the title
+\restoregeometry
+\clearpage
+
+\pagenumbering{roman} % Roman page numbering for abstract page
+
+
+\selectlanguage{english}
+
+\newpage
+
+\pagenumbering{gobble} % Turn off page numbering
+\tableofcontents 
+
+\newpage
+\pagenumbering{arabic} % Turn on page numbering
+
+
+\section{Task 1}
+This is the code for the first task : 
+
+
+
+
+\section{Task 2}
+This is the code for the second task : 
+
+\lstset{style=Asm}
+
+\begin{lstlisting}
+%your code here
+\end{lstlisting}
+
+
+
+
+\section{Task 3}
+
+
+\section{Task 4}
+
+
+\section{Task 5}
+
+
+\section{Task 6}
+
+
+
+% Prints your bibliography database xxx.bib
+\bibliographystyle{IEEEtran}
+\bibliography{ref.bib}
+
+\end{document}
