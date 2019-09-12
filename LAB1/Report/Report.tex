@@ -131,9 +131,42 @@
 
 \section{Task 1}
 This is the code for the first task : 
+\lstset{style=Asm}
+\begin{lstlisting}
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2019-09-09
+; Author:
+; Loic GALLAND
+; Leonardo PEDRO
+;
+; Lab number: 1
+; Title: How to use the PORTs. Digital input/output. Subroutine call.
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Program to light up the LED number 2
 
+; Input ports: NO inputs ports in this Task
+;
+; Output ports: The portB is used as an output ports
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;
+; Other information:
+;
+; Changes in program: (Description and date)
+;
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+.includes "m2560def.inc"
+ldi r16, 0xFF
+out DDRB, r16
 
+ldi r16 , 0b11111011
+out portB, r16
+\end{lstlisting}
 
 \section{Task 2}
 This is the code for the second task : 
@@ -141,7 +174,42 @@ This is the code for the second task :
 \lstset{style=Asm}
 
 \begin{lstlisting}
-%your code here
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2019-09-09
+; Author:
+; Loic GALLAND
+; Leonardo PEDRO
+;
+; Lab number: 1
+; Title: How to use the PORTs. Digital input/output. Subroutine call.
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Program to light up the LED correponding to the switch. EX: (Switch number 1 will light up LED number 1)
+
+; Input ports: PortA is used as input to get the information from the switches 
+;
+; Output ports: The portB is used as an output ports to control the LEDs
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;
+; Other information:
+;
+; Changes in program: (Description and date)
+;
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.include "m2560def.inc"
+ldi r16, 0xFF
+out DDRB, r16
+
+ldi r16, 0x00
+out DDRA, r16
+
+my_loop:
+
 \end{lstlisting}
 
 
