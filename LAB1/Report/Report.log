@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  12 SEP 2019 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  12 SEP 2019 22:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -481,19 +481,19 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 108.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 109.
 
 (c:/texlive/2018/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -599,35 +599,32 @@ ABD: EveryShipout initializing macros
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 114.
+(Font)              <20.74> on input line 115.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 114.
+(Font)              <14.4> on input line 115.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 114.
+(Font)              <12> on input line 115.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 114.
+(Font)              <7> on input line 115.
 <img/lnu_etch.png, id=1, 875.27pt x 1061.9675pt>
 File: img/lnu_etch.png Graphic file (type png)
 <use img/lnu_etch.png>
-Package pdftex.def Info: img/lnu_etch.png  used on input line 115.
+Package pdftex.def Info: img/lnu_etch.png  used on input line 116.
 (pdftex.def)             Requested size: 262.58302pt x 318.5927pt.
 <img/logo.png, id=3, 615.29875pt x 825.0825pt>
 File: img/logo.png Graphic file (type png)
 <use img/logo.png>
-Package pdftex.def Info: img/logo.png  used on input line 115.
+Package pdftex.def Info: img/logo.png  used on input line 116.
 (pdftex.def)             Requested size: 61.53348pt x 82.51308pt.
 [1{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
  <./img/lnu_etch.png> <./img/logo.png>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 126.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 127.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 126.
- (./Report.toc
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
-)
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 127.
+ (./Report.toc)
 \tf@toc=\write3
 \openout3 = `Report.toc'.
 
@@ -644,36 +641,36 @@ File: lstlang2.sty 2018/09/02 1.7 listings language file
 (c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2018/09/02 1.7 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 135.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 136.
 
 (c:/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 136.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 137.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 165.
- [1]
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 166.
+ [1] [2] [3] [4]
 No file Report.bbl.
-[2] (./Report.aux) ) 
+[5] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 16558 strings out of 492639
- 283295 string characters out of 6133087
- 754225 words of memory out of 5000000
- 20272 multiletter control sequences out of 15000+600000
- 568563 words of font info for 59 fonts, out of 8000000 for 9000
+ 16588 strings out of 492639
+ 283595 string characters out of 6133087
+ 813225 words of memory out of 5000000
+ 20303 multiletter control sequences out of 15000+600000
+ 565760 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,12n,63p,814b,1610s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,12n,63p,814b,1618s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:
 /texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><c:/texlive/2018/te
 xmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-dist/fonts/t
 ype1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (4 pages, 644591 bytes).
+Output written on Report.pdf (7 pages, 662774 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
