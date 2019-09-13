@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  12 SEP 2019 22:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  13 SEP 2019 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,7 +624,10 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 127.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 127.
- (./Report.toc)
+ (./Report.toc
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `Report.toc'.
 
@@ -641,24 +644,36 @@ File: lstlang2.sty 2018/09/02 1.7 listings language file
 (c:/texlive/2018/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2018/09/02 1.7 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 136.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 140.
 
 (c:/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 137.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 141.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 166.
- [1] [2] [3] [4]
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 170.
+ [1]
+<img/Task1.png, id=23, 121.45375pt x 432.61626pt>
+File: img/Task1.png Graphic file (type png)
+<use img/Task1.png>
+Package pdftex.def Info: img/Task1.png  used on input line 179.
+(pdftex.def)             Requested size: 121.45343pt x 432.6152pt.
+ [2 <./img/Task1.png>] [3]
+<img/Task2.png, id=31, 151.56625pt x 534.99875pt>
+File: img/Task2.png Graphic file (type png)
+<use img/Task2.png>
+Package pdftex.def Info: img/Task2.png  used on input line 232.
+(pdftex.def)             Requested size: 151.56587pt x 534.99744pt.
+ [4 <./img/Task2.png>] [5] [6] [7] [8]
 No file Report.bbl.
-[5] (./Report.aux) ) 
+[9] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 16588 strings out of 492639
- 283595 string characters out of 6133087
- 813225 words of memory out of 5000000
- 20303 multiletter control sequences out of 15000+600000
- 565760 words of font info for 57 fonts, out of 8000000 for 9000
+ 16604 strings out of 492639
+ 283815 string characters out of 6133087
+ 790349 words of memory out of 5000000
+ 20314 multiletter control sequences out of 15000+600000
+ 572489 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,63p,814b,1618s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:
@@ -667,10 +682,10 @@ xmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-dist/fonts/t
 ype1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (7 pages, 662774 bytes).
+Output written on Report.pdf (11 pages, 686963 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

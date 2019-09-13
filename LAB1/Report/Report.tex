@@ -92,7 +92,7 @@
 \begin{flushright}
 \begin{minipage}{\textwidth}
 \begin{flushleft} \large
-\emph{Author:}\textsc{}\\  % Author
+\emph{Authors:}\textsc{ Leonardo PEDRO, Loïc GALLAND}\\  % Author
 \emph{Supervisor:}  \textsc{} \\  % Author
 \emph{Semester:} Autumn 2019\\ % Semester
 \emph{Area:} Computer Science \\ % Area
@@ -131,7 +131,11 @@
 
 
 \section{Task 1}
-This is the code for the first task : 
+
+\textit{Write a program in Assembly language to light LED 2.
+You can use any of the four ports, but start with PORTB.
+The program should be very short! How many instructions is minimum number?}
+
 \lstset{style=Asm}
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -150,7 +154,7 @@ This is the code for the first task :
 
 ; Input ports: NO inputs ports in this Task
 ;
-; Output ports: The portB is used as an output ports
+; Output ports: The portB is used as an output port
 ;
 ; Subroutines: If applicable.
 ; Included files: m2560def.inc
@@ -168,13 +172,20 @@ out DDRB, r16
 ldi r16 , 0b11111011
 out portB, r16
 \end{lstlisting}
+To be able to light up the LEDs we need 4 lines of code. The first line is to store into the register r16 the value 0xFF. In the second line the register r16 is loaded to DDRB (Data Direction Register of port B). In the third line the desired binary code is stored into register r16. The binary number will determine which LED will light up. In the last line the register r16 is loaded into the PortB (Data Register of Port B).
+\newpage
+This is the flowchart of the task 1:
+\begin{center}
+\includegraphics{img/Task1.png}
+\end{center}
 
-%\includegraphics(./img/Task1.png)
+\newpage
 \section{Task 2}
-This is the code for the second task : 
-
+Write a program in Assembly language to read the switches and light the corresponding
+LED.
+Example: When you press SW5, LED5 so should light.
+Make an initialization part of the program and after that an infinite loop.
 \lstset{style=Asm}
-
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; 1DT301, Computer Technology I
@@ -215,8 +226,14 @@ my_loop:		;Loop to always check which switch is pressed
 	out portB, R17 	;Lighting up the corresponding LED
 rjmp my_loop
 \end{lstlisting}
-
+\newpage
+This is the flowchart for Task 2:
+\begin{center}
+\includegraphics{img/Task2.png}
+\end{center}
+\newpage
 \section{Task 3}
+This is the code for the third task:
 \lstset{style=Asm}
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -265,7 +282,9 @@ rjmp my_loop
 light: out portB,r19	;turns on the LED0
 \end{lstlisting}
 
+\newpage
 \section{Task 5}
+This is the code for the fifth task:
 \lstset{style=Asm}
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -333,7 +352,9 @@ L1:	dec r20
 RET
 \end{lstlisting}
 
+\newpage
 \section{Task 6}
+This is the code for the sixth task:
 \lstset{style=Asm}
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
