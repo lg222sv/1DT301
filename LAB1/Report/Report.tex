@@ -351,10 +351,14 @@ L1:	dec r20
 RET
 \end{lstlisting}
 \newpage
-
+This is the flowchart of the task 5:
+\begin{center}
+%\includegraphics[scale=0.7]{img/Task3.png} Need to be changed to the right flowchart
+\end{center}
 \newpage
 \section{Task 6}
-This is the code for the sixth task:
+Write a program in Assembly language that creates a Johnson Counter in an infinite loop.
+
 \lstset{style=Asm}
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -406,6 +410,9 @@ my_loop:
 	breq light
 rjmp my_loop
 
+
+
+
 light:
 	out portB, r23
 	CALL Delay
@@ -438,7 +445,11 @@ L1:	dec r20
 	rjmp PC+1
 RET
 \end{lstlisting}
-
+\newpage
+This is the flowchart of the task 6:
+\begin{center}
+%\includegraphics[scale=0.7]{img/Task3.png} Need to be changed to the right flowchart
+\end{center}
 
 % Prints your bibliography database xxx.bib
 \bibliographystyle{IEEEtran}
