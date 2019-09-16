@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  16 SEP 2019 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  16 SEP 2019 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -671,25 +671,25 @@ File: img/Task3.png Graphic file (type png)
 <use img/Task3.png>
 Package pdftex.def Info: img/Task3.png  used on input line 290.
 (pdftex.def)             Requested size: 138.41617pt x 662.57086pt.
- [6 <./img/Task3.png>] [7]
-<img/Task5.png, id=48, 482.80376pt x 583.17876pt>
+ [6 <./img/Task3.png>] [7] [8]
+<img/Task5.png, id=51, 471.7625pt x 567.11874pt>
 File: img/Task5.png Graphic file (type png)
 <use img/Task5.png>
-Package pdftex.def Info: img/Task5.png  used on input line 364.
-(pdftex.def)             Requested size: 337.96033pt x 408.22235pt.
- [8 <./img/Task5.png>] [9] [10]
-<img/Task6.png, id=59, 667.293pt x 572.1375pt>
+Package pdftex.def Info: img/Task5.png  used on input line 365.
+(pdftex.def)             Requested size: 424.58232pt x 510.40215pt.
+ [9 <./img/Task5.png>] [10] [11]
+<img/Task6.png, id=62, 667.293pt x 572.1375pt>
 File: img/Task6.png Graphic file (type png)
 <use img/Task6.png>
-Package pdftex.def Info: img/Task6.png  used on input line 460.
+Package pdftex.def Info: img/Task6.png  used on input line 461.
 (pdftex.def)             Requested size: 467.10191pt x 400.49352pt.
 
-Overfull \hbox (40.31056pt too wide) in paragraph at lines 460--461
+Overfull \hbox (40.31056pt too wide) in paragraph at lines 461--462
  [] 
  []
 
 No file Report.bbl.
-[11 <./img/Task6.png>] (./Report.aux) ) 
+[12 <./img/Task6.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
  16620 strings out of 492639
  284071 string characters out of 6133087
@@ -704,10 +704,10 @@ ips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb>
 /texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (13 pages, 781636 bytes).
+Output written on Report.pdf (14 pages, 798388 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
