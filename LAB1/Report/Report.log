@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  15 SEP 2019 16:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  16 SEP 2019 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -671,30 +671,30 @@ File: img/Task3.png Graphic file (type png)
 <use img/Task3.png>
 Package pdftex.def Info: img/Task3.png  used on input line 290.
 (pdftex.def)             Requested size: 138.41617pt x 662.57086pt.
- [6 <./img/Task3.png>] [7]
-<img/Task5.png, id=48, 482.80376pt x 583.17876pt>
+ [6 <./img/Task3.png>] [7] [8]
+<img/Task5.png, id=51, 482.80376pt x 583.17876pt>
 File: img/Task5.png Graphic file (type png)
 <use img/Task5.png>
-Package pdftex.def Info: img/Task5.png  used on input line 356.
+Package pdftex.def Info: img/Task5.png  used on input line 364.
 (pdftex.def)             Requested size: 337.96033pt x 408.22235pt.
- [8 <./img/Task5.png>] [9] [10]
-<img/Task6.png, id=59, 667.293pt x 572.1375pt>
+ [9 <./img/Task5.png>] [10] [11]
+<img/Task6.png, id=63, 667.293pt x 572.1375pt>
 File: img/Task6.png Graphic file (type png)
 <use img/Task6.png>
-Package pdftex.def Info: img/Task6.png  used on input line 452.
+Package pdftex.def Info: img/Task6.png  used on input line 460.
 (pdftex.def)             Requested size: 467.10191pt x 400.49352pt.
 
-Overfull \hbox (40.31056pt too wide) in paragraph at lines 452--453
+Overfull \hbox (40.31056pt too wide) in paragraph at lines 460--461
  [] 
  []
 
 No file Report.bbl.
-[11 <./img/Task6.png>] (./Report.aux) ) 
+[12 <./img/Task6.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 16619 strings out of 492639
- 284055 string characters out of 6133087
+ 16620 strings out of 492639
+ 284071 string characters out of 6133087
  802349 words of memory out of 5000000
- 20326 multiletter control sequences out of 15000+600000
+ 20327 multiletter control sequences out of 15000+600000
  572489 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,63p,814b,1622s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -704,10 +704,10 @@ ips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb>
 /texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (13 pages, 780931 bytes).
+Output written on Report.pdf (14 pages, 781828 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 90 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

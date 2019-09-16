@@ -1,0 +1,36 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\Debug\LOICLEOLAB2.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>LOICLEOLAB2.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>LOICLEOLAB2.map</FILE>
+  <FILE>LOICLEOLAB2.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Main><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>49</LINE></Main>
+  <loop><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>56</LINE></loop>
+  <reset><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>65</LINE></reset>
+  <RD><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>69</LINE></RD>
+  <ONE><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>83</LINE></ONE>
+  <TWO><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>87</LINE></TWO>
+  <THREE><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>91</LINE></THREE>
+  <FOUR><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>95</LINE></FOUR>
+  <FIVE><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>99</LINE></FIVE>
+  <SIX><FILE>C:\Users\Loic PC\Documents\School\LNU_Computer_Technology\Year 2 (2019-2020)\1DT301\LAB2\Code\LOICLEOLAB2\LOICLEOLAB2\LOICLEOLAB2.asm</FILE><LINE>103</LINE></SIX>
+ </LABELS>
+</ASSEMBLER_INFO>
