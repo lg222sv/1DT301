@@ -42,7 +42,7 @@ ldi r16, 0x00
 out DDRA, r16
 
 ldi r24, 0b11111110
-;ldi r25, 0b11111110
+
 
 RC:
 	ldi r21, 0b11111111; inital LED state
