@@ -34,66 +34,34 @@ out DDRB, r16 ;Set port B as output
 ldi r16,0x00
 out DDRA, r16
 
-ldi r19,1; counter
-ldi r25, 0xFF
-out PortB,r25
-ldi r24,0b11111110
+ldi r25, 0
+ldi r24,0
 
-Main:
-	in r17,PINA
-	cp r17,r24
-	breq loop
-	
-rjmp Main
+ldi r17, 0b11111111
+out PORTB, r17
 
-loop:
-	inc r19
-	cpi r19,7
-	breq reset
-	in r17,PINA
-	cp r17,r25
-	breq RD 
-rjmp loop
+ldi r18, 0b11111110
 
-reset:
-ldi r19,1
-rjmp Main
+my_loop:
+	in r19, PINA
+	cp r18,r19
+	breq counter
+rjmp my_loop
 
-RD:
-	cpi r19,1
-	breq ONE
-	cpi r19,2
-	breq TWO
-	cpi r19,3
-	breq THREE
-	cpi r19,4
-	breq FOUR
-	cpi r19,5
-	breq FIVE
-	cpi r19,6
-	breq SIX
-rjmp RD
-ONE:
-ldi r18,0b11101111
-out PortB,r18
-rjmp Main
-TWO:
-ldi r18,0b10111011
-out PortB,r18
-rjmp Main
-THREE:
-ldi r18,0b10101011
-out PortB,r18
-rjmp Main
-FOUR:
-ldi r18,0b00111001
-out PortB,r18
-rjmp Main
-FIVE:
-ldi r18,0b00101001
-out PortB,r18
-rjmp Main
-SIX:
-ldi r18,0b00010001
-out PortB,r18
-rjmp Main
+counter:
+inc r25
+mov r20,r25
+com r20
+out portB,r20
+	loop:
+		in r19,PINA
+		cp r19,r17
+		breq counter2
+	rjmp loop
+
+counter2:
+inc r25
+mov r20,r25
+com r20
+out portB,r20
+rjmp my_loop

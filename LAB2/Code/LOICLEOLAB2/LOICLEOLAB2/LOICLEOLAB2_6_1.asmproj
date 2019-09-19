@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>7.0</ProjectVersion>
+    <ProjectVersion>6.1</ProjectVersion>
     <ToolchainName>com.Atmel.AVRAssembler</ToolchainName>
     <ProjectGuid>{e63dbd64-f7cb-47b8-8590-c6d4f9024f47}</ProjectGuid>
     <avrdeviceseries>none</avrdeviceseries>
@@ -42,7 +42,7 @@
       <ToolOptions>
         <InterfaceProperties>
           <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
-          <IspClock>125000</IspClock>
+          <IspClock>2000</IspClock>
         </InterfaceProperties>
         <InterfaceName>ISP</InterfaceName>
       </ToolOptions>
@@ -52,42 +52,32 @@
     </com_atmel_avrdbg_tool_stk600>
     <avrtoolinterface>ISP</avrtoolinterface>
     <com_atmel_avrdbg_tool_simulator>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceProperties>
           <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
         </InterfaceProperties>
         <InterfaceName>
         </InterfaceName>
       </ToolOptions>
-      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
-      <ToolNumber xmlns="">
+      <ToolType>com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber>
       </ToolNumber>
-      <ToolName xmlns="">Simulator</ToolName>
+      <ToolName>Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrAssembler>
-  <avrasm.assembler.general.AdditionalIncludeDirectories>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.209\avrasm\inc</Value>
-    </ListValues>
-  </avrasm.assembler.general.AdditionalIncludeDirectories>
-  <avrasm.assembler.general.IncludeFile>m2560def.inc</avrasm.assembler.general.IncludeFile>
-</AvrAssembler>
+        <avrasm.assembler.general.IncludeFile>(%24IncludeFile)</avrasm.assembler.general.IncludeFile>
+      </AvrAssembler>
     </ToolchainSettings>
     <OutputType>Executable</OutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrAssembler>
-  <avrasm.assembler.general.AdditionalIncludeDirectories>
-    <ListValues>
-      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.209\avrasm\inc</Value>
-    </ListValues>
-  </avrasm.assembler.general.AdditionalIncludeDirectories>
-  <avrasm.assembler.general.IncludeFile>m2560def.inc</avrasm.assembler.general.IncludeFile>
-</AvrAssembler>
+        <avrasm.assembler.general.IncludeFile>(%24IncludeFile)</avrasm.assembler.general.IncludeFile>
+      </AvrAssembler>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
