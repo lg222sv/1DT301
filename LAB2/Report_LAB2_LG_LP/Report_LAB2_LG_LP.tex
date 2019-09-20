@@ -175,28 +175,25 @@ out SPL,R20 ; SPL = low part of RAMEND address
 
 ldi r16, 0xFF ;setting up the data direction register port B
 out DDRB, r16 ;Set port B as output
-ldi r16, 0x00
-out DDRA, r16
+ldi r16, 0x00	;Set the data direction register port A
+out DDRA, r16	;Set portA as input
 
-ldi r24, 0b11111110
-;ldi r25, 0b11111110
+ldi r24, 0b11111110	;Desired switch
 
-RC:
+RC:	;Ring Counter Code
 	ldi r21, 0b11111111; inital LED state
-	out portB, r21
-	mov r17, r21
-	ldi r22, 0xFF
-	ldi r23, 0b11111110
- 
+	out portB, r21	;Turn off all the lights
+	mov r17, r21	;Copy r21 into r17
+	ldi r22, 0xFF	;To compare to make it restart when all the lights turn off 
 	RC_loop:
-		out portB, r17
-		rol r17
-		CALL Delay1
-		in r25, PINA
-		cp r25,r24
-		breq JC
-		cp r17, r22
-		breq RC_light
+		out portB, r17	;Show the corresponding lights
+		rol r17	;rotate the bits to make them go left
+		CALL Delay1	;Delay of 0.5 seconds
+		in r25, PINA	;Read the input from the switch
+		cp r25,r24	;Compare the switches with the desired switch
+		breq JC	;If they are =, go to Johnson Counter
+		cp r17, r22		;Check if all the lights are turned off
+		breq RC_light	;
 	rjmp RC_loop
 	RC_light:
 		rol r17
@@ -254,13 +251,11 @@ L1: dec  r20
     brne L1
 RET
 \end{lstlisting}
-
-\newpage
 This is the flowchart of the task 1:
 \begin{center}
-%\includegraphics{img/Task1.png}
+\includegraphics[scale=0.7]{img/Task1.png}
 \end{center}
-
+\newpage
 \section{Task 2 - Electronic dice}
 \textit{You should create an electronic dice. Think of the LEDs placed as in the picture below. The
 number 1 to 6 should be generated randomly. You could use the fact that the time you press the
