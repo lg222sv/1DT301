@@ -347,10 +347,10 @@ out PortB,r18
 rjmp Listening_For_Switch_Press
 \end{lstlisting}
 
-\newpage
 This is the flowchart of the task 2:
+\newpage
 \begin{center}
-%\includegraphics{img/Task2.png}
+\includegraphics[scale=0.4]{img/Task2.png}
 \end{center}
 
 \newpage
@@ -376,8 +376,7 @@ edges. We calculate the changes in a byte variable and display its value on PORT
 ; Function: Describe the function of the program, so that you can understand it,
 ; even if you're viewing this in a year from now!
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
+; Input ports: PORTA will be used as input to get information from the switches
 ;
 ; Output ports: Describe the function of used ports, for example on-board LEDs
 ; connected to PORTB.
@@ -430,7 +429,7 @@ counter_when_switch_released:
 \newpage
 This is the flowchart of the task 3:
 \begin{center}
-\includegraphics[scale=0.8]{img/Task3.png}
+\includegraphics[scale=0.8]{img/TASK3.png}
 \end{center}
 
 \newpage
@@ -466,6 +465,12 @@ This is the flowchart of the task 3:
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 .equ INPUT= 1000
+
+; Initialize SP, Stack Pointer
+ldi r20, HIGH(RAMEND) ; R20 = high part of RAMEND address
+out SPH,R20 ; SPH = high part of RAMEND address
+ldi R20, low(RAMEND) ; R20 = low part of RAMEND address
+out SPL,R20 ; SPL = low part of RAMEND address
 
 ldi r16, 0xFF ;setting up the data direction register port B
 out DDRB, r16 ;Set port B as output
