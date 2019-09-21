@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  20 SEP 2019 10:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  21 SEP 2019 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -651,15 +651,15 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 141.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 170.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 164.
  [1] [2]
 <img/Task1.png, id=26, 614.295pt x 745.78625pt>
 File: img/Task1.png Graphic file (type png)
 <use img/Task1.png>
-Package pdftex.def Info: img/Task1.png  used on input line 256.
+Package pdftex.def Info: img/Task1.png  used on input line 247.
 (pdftex.def)             Requested size: 430.00356pt x 522.04683pt.
 
-Overfull \hbox (3.2122pt too wide) in paragraph at lines 256--257
+Overfull \hbox (3.2122pt too wide) in paragraph at lines 247--248
  [] 
  []
 
@@ -667,10 +667,10 @@ Overfull \hbox (3.2122pt too wide) in paragraph at lines 256--257
 No file Report_LAB2_LG_LP.bbl.
 [10] (./Report_LAB2_LG_LP.aux) ) 
 Here is how much of TeX's memory you used:
- 16627 strings out of 492639
- 284193 string characters out of 6133087
- 794594 words of memory out of 5000000
- 20338 multiletter control sequences out of 15000+600000
+ 16632 strings out of 492639
+ 284235 string characters out of 6133087
+ 844594 words of memory out of 5000000
+ 20343 multiletter control sequences out of 15000+600000
  572489 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,63p,825b,2056s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -680,7 +680,7 @@ live/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-
 dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report_LAB2_LG_LP.pdf (12 pages, 701490 bytes).
+Output written on Report_LAB2_LG_LP.pdf (12 pages, 703013 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream
