@@ -266,58 +266,52 @@ button varies in length.}
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function:Program that represent an electronic dice. The number 1 to 6 will be choose randomly every time we click on the button
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
+; Input ports: PORTA will be used as input to get the information from the switches.
+; Output ports: PORTB will be used as output to light up the LEDs when needed. 
 ;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
-;
-; Subroutines: If applicable.
+; Subroutines: None needed here.
 ; Included files: m2560def.inc
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 
-ldi r16, 0xFF ;setting up the data direction register port B
-out DDRB, r16 ;Set port B as output
+ldi r16, 0xFF ;setting up the data direction register PORTB
+out DDRB, r16 ;Set PORTB as output
 
-ldi r16,0x00
-out DDRA, r16
+ldi r16,0x00	;setting up the data direction register PORTA
+out DDRA, r16	;Set PORTA as input
 
-ldi r19,1; counter
-ldi r25, 0xFF
+ldi r19,1; Counter for the number of the dice 
+ldi r25, 0xFF	;To turn off all the LEDs
 out PortB,r25
-ldi r24,0b11111110
+ldi r24,0b11111110	;Desired Switch Binary Code
 
-Listening_For_Switch_Press:
-	in r17,PINA
-	cp r17,r24
-	breq loop
+Listening_For_Switch_Press:	;Listening when the switch will be pressed.
+	in r17,PINA	;Get info from switches 
+	cp r17,r24	;Compare the switches and the desired switch binary code.
+	breq Listening_For_Switch_Release	;If equal goes to the loop below.
 rjmp Listening_For_Switch_Press
 
-Listening_For_Switch_Release:
-	inc r19
-	cpi r19,7
-	breq reset
-	in r17,PINA
-	cp r17,r25
-	breq RD 
-rjmp Listening_For_Switch_Release
+Listening_For_Switch_Release:	;Listening when the switch will be released
+	inc r19	;increase r19 by 1 every time it comes into this loop
+	cpi r19,7	;compare to a constant (7) as we only want numbers from 1 to 6
+	breq reset	;if equal reset the counter
+	in r17,PINA	;Check the info from the switches
+	cp r17,r25	;Check if user has released the switches
+	breq RD	;If yes go to RD loop
+rjmp Listening_F	or_Switch_Release
 
-reset:
+reset:	;to reset the counter
 ldi r19,1
 rjmp Main
 
-RD:
-	cpi r19,1
-	breq ONE
-	cpi r19,2
-	breq TWO
-	cpi r19,3
+RD:	;This is where the random will happen
+	cpi r19,1	;When it will be sent to this loop 
+	breq ONE	;It will stop on one of those numbers
+	cpi r19,2	;Depending on which number is 
+	breq TWO	;r19 right now it will decide which
+	cpi r19,3	;number it will gets
 	breq THREE
 	cpi r19,4
 	breq FOUR
@@ -327,11 +321,10 @@ RD:
 	breq SIX
 rjmp RD
 
-ONE:
-ldi r18,0b11101111
-out PortB,r18
-rjmp Listening_For_Switch_Press
-
+ONE:			;If r19 was equal to 1 it will come here
+ldi r18,0b11101111	;Load to r18 the corresponding binary code to make it look like a 1
+out PortB,r18		;Output it to PORTB
+rjmp Listening_For_Switch_Press	;and go back to the first loop 
 TWO:
 ldi r18,0b10111011
 out PortB,r18
@@ -340,17 +333,14 @@ THREE:
 ldi r18,0b10101011
 out PortB,r18
 rjmp Listening_For_Switch_Press
-
 FOUR:
 ldi r18,0b00111001
 out PortB,r18
 rjmp Listening_For_Switch_Press
-
 FIVE:
 ldi r18,0b00101001
 out PortB,r18
 rjmp Listening_For_Switch_Press
-
 SIX:
 ldi r18,0b00010001
 out PortB,r18
@@ -358,9 +348,9 @@ rjmp Listening_For_Switch_Press
 \end{lstlisting}
 
 \newpage
-This is the flowchart of the task 1:
+This is the flowchart of the task 2:
 \begin{center}
-%\includegraphics{img/Task1.png}
+%\includegraphics{img/Task2.png}
 \end{center}
 
 
