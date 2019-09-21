@@ -353,7 +353,7 @@ This is the flowchart of the task 2:
 %\includegraphics{img/Task2.png}
 \end{center}
 
-
+\newpage
 \section{Task 3 - Change counter}
 \textit{Write a program that is able to count the number of changes on a switch. As a change we count
 when the switch SW0 goes from 0 to 1 and from 1 to 0, we expect therefore positive and negative
@@ -396,7 +396,6 @@ ldi r16,0x00
 out DDRA, r16
 
 ldi r25, 0
-ldi r24,0
 
 ldi r17, 0b11111111
 out PORTB, r17
@@ -406,34 +405,35 @@ ldi r18, 0b11111110
 my_loop:
 	in r19, PINA
 	cp r18,r19
-	breq counter
+	breq counter_when_switch_pressed
 rjmp my_loop
 
-counter:
-inc r25
-mov r20,r25
-com r20
-out portB,r20
-	loop:
-		in r19,PINA
-		cp r19,r17
-		breq counter2
-	rjmp loop
+counter_when_switch_pressed:
+	inc r25
+	mov r20,r25
+	com r20
+	out portB,r20
+		loop:
+			in r19,PINA
+			cp r19,r17
+			breq counter_when_switch_released
+		rjmp loop
 
-counter2:
-inc r25
-mov r20,r25
-com r20
-out portB,r20
-rjmp my_loop
+counter_when_switch_released:
+	inc r25
+	mov r20,r25
+	com r20
+	out portB,r20
+	rjmp my_loop
 \end{lstlisting}
 
 \newpage
 This is the flowchart of the task 3:
 \begin{center}
-%\includegraphics{img/Task1.png}
+\includegraphics[scale=0.8]{img/Task3.png}
 \end{center}
 
+\newpage
 \section{Task 4 - Delay subroutine with variable delay time}
 
 \lstset{style=Asm}
