@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  21 SEP 2019 18:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  21 SEP 2019 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,10 +673,10 @@ Package pdftex.def Info: img/Task2.png  used on input line 353.
 <img/TASK3.png, id=49, 561.09625pt x 844.15375pt>
 File: img/TASK3.png Graphic file (type png)
 <use img/TASK3.png>
-Package pdftex.def Info: img/TASK3.png  used on input line 432.
+Package pdftex.def Info: img/TASK3.png  used on input line 428.
 (pdftex.def)             Requested size: 448.87761pt x 675.32391pt.
 
-Overfull \hbox (22.08626pt too wide) in paragraph at lines 432--433
+Overfull \hbox (22.08626pt too wide) in paragraph at lines 428--429
  [] 
  []
 
@@ -697,7 +697,7 @@ live/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-
 dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report_LAB2_LG_LP.pdf (14 pages, 797273 bytes).
+Output written on Report_LAB2_LG_LP.pdf (14 pages, 797455 bytes).
 PDF statistics:
  86 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream

@@ -373,44 +373,40 @@ edges. We calculate the changes in a byte variable and display its value on PORT
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function:Program that count every time the switch number 0 is pressed or released. it will show the count with binary code on the LEDs
 ;
 ; Input ports: PORTA will be used as input to get information from the switches
 ;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
+; Output ports: PORTB will be used as output to light up the LEDs
 ;
-; Subroutines: If applicable.
+; Subroutines: None needed in this Task
 ; Included files: m2560def.inc
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 
 ldi r16, 0xFF ;setting up the data direction register port B
 out DDRB, r16 ;Set port B as output
 
-ldi r16,0x00
-out DDRA, r16
+ldi r16,0x00	;setting up the data direction register PORTA
+out DDRA, r16	;Set PORTA as input
 
-ldi r25, 0
+ldi r25, 0	;Counter 
 
 ldi r17, 0b11111111
-out PORTB, r17
+out PORTB, r17	;Turn off all the LEDs
 
-ldi r18, 0b11111110
+ldi r18, 0b11111110	;Desired switch binary code
 
 my_loop:
-	in r19, PINA
-	cp r18,r19
+	in r19, PINA	;Check input from swiches
+	cp r18,r19	;compare input with desired switch
 	breq counter_when_switch_pressed
 rjmp my_loop
-
+;The switch is now pressed
 counter_when_switch_pressed:
-	inc r25
-	mov r20,r25
-	com r20
+	inc r25	;increase r25 by 1
+	mov r20,r25	;Copy r25 into r20
+	com r20	;COM it to make it show the binary code, so that when the light turns on it represent the 1 of binary code
 	out portB,r20
 		loop:
 			in r19,PINA
