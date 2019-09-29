@@ -1,30 +1,23 @@
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; 1DT301, Computer Technology I
-; Date: 2015-09-03
+; Date: 2019-09-29
 ; Author:
-; Student name 1
-; Student name 2
+; Loic GALLAND
+; Leonardo PEDRO
 ;
 ; Lab number: 3
 ; Title: How to use interrupts
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function: Program that when clicking on a switch the LEDs switch from ON to OFF and vice versa. It is using interupts to do it.
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
+; Input ports: PORTD
 ;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
+; Output ports: PORTB
 ;
 ; Subroutines: If applicable.
 ; Included files: m2560def.inc
-;
-; Other information:
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 
@@ -37,7 +30,7 @@ rjmp interrupt_0
 .org 0x72
 
 start:
-.def LIGHT =r21	;Give a name to r21
+.def LIGHT = r21	;Give a name to r21
 ; Initialize SP, Stack Pointer
 ldi r20, HIGH(RAMEND) ; R20 = high part of RAMEND address
 out SPH,R20 ; SPH = high part of RAMEND address
@@ -66,5 +59,5 @@ main:
 rjmp main
 
 interrupt_0:
-com LIGHT	;Change the 0s into 1s, to show the lights on
+	com LIGHT	;Change the 0s into 1s, to show the lights on
 RETI	

@@ -129,30 +129,122 @@
 \pagenumbering{arabic} % Turn on page numbering
 
 
-\section{Task 1 - Switch – Ring counter / Johnson counter}
+\section{Task 1 - }
 
-\textit{Write a program which switch between Ring counter and Johnson counter. You should not use
-Interrupt in this lab. The pushbutton must be checked frequently, so there is no delay between the
-button is pressed and the change between Ring/Johnson. Use SW0 (PA0) for the button. Each
-time you press the button, the program should change counter.}
+\textit{Write a program that turns ON and OFF a LED with a push button. The LED will be extinguished
+when pressing the button.
+The program will use Interrupt. Connect the push buttons to PORT D.
+The program should have a main program that runs in a loop and wait for the interrupts. An
+interrupt routine is called when the push button is pressed. Each time the button is pressed, the
+lamp should switch from ‘OFF’ to ‘ON’, or from ‘ON’ to ‘OFF’.}
 
 \lstset{style=Asm}
 \begin{lstlisting}
-WRITE SHIT HERE
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2019-09-29
+; Author:
+; Loic GALLAND
+; Leonardo PEDRO
+;
+; Lab number: 3
+; Title: How to use interrupts
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Program that when clicking on a switch the LEDs switch from ON to OFF and vice versa. It is using interupts to do it.
+;
+; Input ports: PORTD
+;
+; Output ports: PORTB
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+.include "m2560def.inc"
+
+.org 0x00	;Location where the program will start
+rjmp start
+
+.org INT0addr	;INT0 interrupt address
+rjmp interrupt_0
+
+.org 0x72
+
+start:
+.def LIGHT = r21	;Give a name to r21
+; Initialize SP, Stack Pointer
+ldi r20, HIGH(RAMEND) ; R20 = high part of RAMEND address
+out SPH,R20 ; SPH = high part of RAMEND address
+ldi R20, low(RAMEND) ; R20 = low part of RAMEND address
+out SPL,R20 ; SPL = low part of RAMEND address
+
+ldi r16,0xFF	;Load 0xFF into r16 to initialize PORTB
+out DDRB,r16	
+ldi r16,0x00	;Load 0x00 into r16 and initialize PORTD
+out DDRD,r16
+
+ldi r18, 0xFF	;initiliaze the LEDs (turn them off)
+out PORTB, r18
+
+mov LIGHT,r18	;Copy the r18 into "LIGHT"
+;Initialised the Interrupts
+ldi r16, 0b00000010	;INT0 falling edge
+sts EICRA, r16	;Setup internal 
+
+ldi r16, 0b00000001	;INT0 enable, pin 0 of PORT D
+out EIMSK, r16
+sei	;Global interrupt enable
+
+main:
+	out PORTB, LIGHT	;Turn on the LEDs
+rjmp main
+
+interrupt_0:
+	com LIGHT	;Change the 0s into 1s, to show the lights on
+RETI	
 \end{lstlisting}
 This is the flowchart of the task 1:
 \begin{center}
 %\includegraphics[scale=0.7]{img/Task1.png}
 \end{center}
 \newpage
-\section{Task 2 - Electronic dice}
-\textit{You should create an electronic dice. Think of the LEDs placed as in the picture below. The
-number 1 to 6 should be generated randomly. You could use the fact that the time you press the
-button varies in length.}
+\section{Task 2 - Switch – Ringcounter / Johnsoncounter, with interrupt}
+\textit{Write a program that by means of a switch can choose to flash 8 LEDs either in the form of a ring
+counter or in the form of a Johnson counter. Use the switch SW0 connected to PORTD to switch
+between the two counters. Each time the button is pressed, a shift between the two counters
+should take place. By using interrupts you’ll swap directly with no delay.}
 
 \lstset{style=Asm}
 \begin{lstlisting}
-
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2015-09-03
+; Author:
+; Student name 1
+; Student name 2
+;
+; Lab number: 3
+; Title: How to use interrupts
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Describe the function of the program, so that you can understand it,
+; even if you're viewing this in a year from now!
+;
+; Input ports: Describe the function of used ports, for example on-board switches
+; connected to PORTA.
+;
+; Output ports: Describe the function of used ports, for example on-board LEDs
+; connected to PORTB.
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;
+; Other information:
+;
+; Changes in program: (Description and date)
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \end{lstlisting}
 
 This is the flowchart of the task 2:
@@ -162,14 +254,40 @@ This is the flowchart of the task 2:
 \end{center}
 
 \newpage
-\section{Task 3 - Change counter}
-\textit{Write a program that is able to count the number of changes on a switch. As a change we count
-when the switch SW0 goes from 0 to 1 and from 1 to 0, we expect therefore positive and negative
-edges. We calculate the changes in a byte variable and display its value on PORTB.}
+\section{Task 3 - Rear lights on a car}
+\textit{Program that simulates the rear lights on a car
+The 8 LEDs should behave like the rear lights.}
 
 \lstset{style=Asm}
 \begin{lstlisting}
-
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2015-09-03
+; Author:
+; Student name 1
+; Student name 2
+;
+; Lab number: 3
+; Title: How to use interrupts
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Describe the function of the program, so that you can understand it,
+; even if you're viewing this in a year from now!
+;
+; Input ports: Describe the function of used ports, for example on-board switches
+; connected to PORTA.
+;
+; Output ports: Describe the function of used ports, for example on-board LEDs
+; connected to PORTB.
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;
+; Other information:
+;
+; Changes in program: (Description and date)
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \end{lstlisting}
 
 \newpage
@@ -179,11 +297,38 @@ This is the flowchart of the task 3:
 \end{center}
 
 \newpage
-\section{Task 4 - Delay subroutine with variable delay time}
+\section{Task 4 - Rear lights on a car, with light for brakes}
 
 \lstset{style=Asm}
 \begin{lstlisting}
-
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2015-09-03
+; Author:
+; Student name 1
+; Student name 2
+;
+; Lab number: 3
+; Title: How to use interrupts
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Describe the function of the program, so that you can understand it,
+; even if you're viewing this in a year from now!
+;
+; Input ports: Describe the function of used ports, for example on-board switches
+; connected to PORTA.
+;
+; Output ports: Describe the function of used ports, for example on-board LEDs
+; connected to PORTB.
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;
+; Other information:
+;
+; Changes in program: (Description and date)
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \end{lstlisting}
 
 \newpage
