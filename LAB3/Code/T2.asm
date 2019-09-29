@@ -16,7 +16,7 @@
 ;
 ; Output ports: PORTB
 ;
-; Subroutines: If applicable.
+; Subroutines: Used to create the RESET method to be able to reset the state of the LEDs
 ; Included files: m2560def.inc
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
