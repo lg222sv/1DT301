@@ -1,37 +1,30 @@
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; 1DT301, Computer Technology I
-; Date: 2015-09-03
+; Date: 2019-09-29
 ; Author:
-; Student name 1
-; Student name 2
+; Loic GALLAND
+; Leonardo PEDRO
 ;
 ; Lab number: 3
 ; Title: How to use interrupts
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function: Program that when clicking on a switch switches between Ring Counter and Johnson Counter
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
+; Input ports: PORTD
 ;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
+; Output ports: PORTB
 ;
 ; Subroutines: If applicable.
 ; Included files: m2560def.inc
-;
-; Other information:
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 
 .org 0x00
 rjmp start
 
-.org INT0addr
+.org INT0addr	;Address of the Interrupt 0
 rjmp interrupt
 
 .org 0x72
@@ -54,21 +47,20 @@ out DDRB, r17
 ldi r17,0x00	;Set PORTD as input
 out DDRD,r17
 
-.equ JOHNSON = 0x00
-.equ RING = 0xFF
-.equ DOWN = 0
-.def LED = r22
-.def Status = r23
-ldi Status,DOWN
+.equ Counter = 0xFF	;This variable will help us to know in which counter the program is to switch to the other one 
+.equ DOWN = 0	;Variable to check if the Johnson counter is going left or right 
+.def LED = r22	;Giving a name to r22 like if it a variable
+.def Status = r23	;Same here
+ldi Status,DOWN	;Loading 0 (DOWN) into R23(Status)
 
-ldi r16, RING	;iniatialize LEDs (Turn them off)
+ldi r16, Counter	;iniatialize LEDs (Turn them off)
 out PORTB,r16
 
-call reset
+call reset ;To reset the LEDs 
 sei	;Global interrupt enable
 
 main:
-	cpi r16, RING	;Check in which program it is
+	cpi r16, Counter	;Check in which program it is
 		breq Ring_Johnson	;Send to Johnson counter if r16 = 0xFF
 
 	Johnson_Ring:	;Else goes here ans send to Ring counter
@@ -82,14 +74,14 @@ main:
 rjmp main
 
 reset:	;To reset the LEDS
-ldi LED,0b11111110
-out PORTB,LED
-RET
+ldi LED,0b11111110	;Load 254 into LED.
+out PORTB,LED	;Show the result on the LEDs.
+RET	;Return to where the reset was called.
 
 RC:	;RING COUNTER
-	SBIS PORTB,PINB7 ;If the LED7 is on then reset the LEDs otherwise skip the next line
+	SBIS PORTB,PINB7 ;If the LED7 is ON then reset the LEDs otherwise skip the next line.
 		ldi LED,0b11111110
-	SBIC PORTB,PINB7	;If the LED7 is not on then Rotate otherwise skip the next line 
+	SBIC PORTB,PINB7	;If the LED7 is OFF then Rotate otherwise skip the next line 
 		rol LED	;Rotate to the left 
 	out PORTB,LED	;output to PORTB to show the LEDs
 	call Delay	;Delay of 0.5 sec
@@ -116,7 +108,7 @@ JC:	;JOHNSON COUNTER
 			rjmp shift_left_right	;if it is on then jump to shift_left_right
 		LSL LED ;Otherwise Logical shift to the left for the LEDs
 		out PORTB, LED	;output to PORTB 
-		CALL Delay
+		CALL Delay	;Delay of 0.5 sec 
 	rjmp finish
 		
 	JCRIGHT:
@@ -128,7 +120,7 @@ JC:	;JOHNSON COUNTER
 		
 
 finish:
-RET
+RET	;Return to where to it was called
 
 
 interrupt:
