@@ -74,7 +74,7 @@ Main:
 	cpi r23, 2	;If r23 = 2 then branch to BLeft which is the blinking to left.
 	breq BLeft
 
-	cpi r23, 3 ;If r23 = 3 then branch to BLeft which is the blinking to left.
+	cpi r23, 3 ;If r23 = 3 then branch to BLeft which is the blinking to right.
 	breq BRight
 
 

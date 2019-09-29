@@ -1,47 +1,41 @@
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; 1DT301, Computer Technology I
-; Date: 2015-09-03
+; Date: 2019-09-29
 ; Author:
-; Student name 1
-; Student name 2
+; Loic GALLAND
+; Leonardo PEDRO
 ;
 ; Lab number: 3
 ; Title: How to use interrupts
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function: Same program as Task 3, but now there is another Interrupt to simulate the brakes. When breaking all the lights needs to be turned on.
+;			When blinking right LED7-4 light up and LED3-0 do Ring Counter to the right.
+;			When blinking left LED3-0 light up & LED7-4 do Ring Counter to the left.
+; Input ports: PORTD
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
-;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
+; Output ports: PORTB
 ;
 ; Subroutines: If applicable.
 ; Included files: m2560def.inc
-;
-; Other information:
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .include "m2560def.inc"
 
 .org 0x00
 rjmp start
 
-.org INT0addr
+.org INT0addr	;Address of Interrupt 0, used for blinking right.
 rjmp BlinkRight	
 
-.org INT2addr       ;Initializing first Interrupt
+.org INT1addr	;Address of Interrupt 1, used for normal lights.
+rjmp Normal_Interrupt
+
+.org INT2addr	;Address of Interrupt 2, used for the break lights.
 rjmp Press_Break
 
-.org INT3addr
+.org INT3addr	;Address of Interrupt 3, used for blinking left.
 rjmp BlinkLeft
-
-.org INT1addr
-rjmp Normal_Interrupt
 
 .org 0x72
 
@@ -63,37 +57,37 @@ out DDRB, r17
 ldi r17,0x00	;Set PORTD as input
 out DDRD,r17
 
-ldi r16, 0xFF	
+ldi r16, 0xFF	;Iniatialize the LEDs
 out PORTB, r16
-ldi r18,2
-.def LED=r16
-.def Normal_Right = r22
+
+.def LED = r16	;Give the name "LED" to the register number 16
+.def Normal_Right = r22	;Give the name "Normal_Right" to the register number 22, will be used to simulate the left rear light
 ldi Normal_Right, 0b11000000
-.def Normal_Left = r21
+.def Normal_Left = r21	;Give the name "Normal_Left" to the register number 21 will be used to simulate the right rear light
 ldi Normal_Left,0b00000011
 
 sei	;Global interrupt enable
 
 
-ldi r23, 1
+ldi r23, 1	;Variable to know in which configuration we are in.
 
 
 Main:
-	cpi r23,1
+	cpi r23,1	;If r23 = 1 then branch to NLED which is the normal LEDs:
 	breq NLED
 
-	cpi r23, 2
+	cpi r23, 2	;If r23 = 2 then branch to BLeft which is the blinking to right.
 	breq BRight
 
-	cpi r23, 3
+	cpi r23, 3	;If r23 = 3 then branch to BLeft which is the blinking to left.
 	breq BLeft
 rjmp Main
 
 NLED:
-	ldi LED, 0b00000000
-	ADD LED,Normal_Right
-	add LED,Normal_Left
-	mov r17,LED
+	ldi LED, 0b00000000	;Load 0x00 into "LED", to "reset" it
+	ADD LED,Normal_Right	;Add both side of the rear lights with binary code
+	add LED,Normal_Left		; 0b11000011
+	mov r17,LED	;Copy the info from LED
 	COM r17
 	out PORTB, r17
 rjmp Main
