@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  29 SEP 2019 20:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  29 SEP 2019 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -674,27 +674,70 @@ Overfull \hbox (31.52443pt too wide) in paragraph at lines 368--369
  [] 
  []
 
-[6 <./img/TASK2.png>] [7] [8] [9] [10] [11] [12] [13] [14]
+[6 <./img/TASK2.png>] [7] [8] [9]
+<img/TASK3-1.png, id=52, 561.89925pt x 500.46976pt>
+File: img/TASK3-1.png Graphic file (type png)
+<use img/TASK3-1.png>
+Package pdftex.def Info: img/TASK3-1.png  used on input line 527.
+(pdftex.def)             Requested size: 561.89787pt x 500.46852pt.
+
+Overfull \hbox (135.10652pt too wide) in paragraph at lines 527--528
+ [] 
+ []
+
+<img/TASK3-2.png, id=53, 693.792pt x 390.258pt>
+File: img/TASK3-2.png Graphic file (type png)
+<use img/TASK3-2.png>
+Package pdftex.def Info: img/TASK3-2.png  used on input line 530.
+(pdftex.def)             Requested size: 624.40703pt x 351.22894pt.
+
+Overfull \hbox (197.61568pt too wide) in paragraph at lines 530--531
+ [] 
+ []
+
+[10 <./img/TASK3-1.png>] [11 <./img/TASK3-2.png>] [12] [13] [14] [15]
+<img/Task4-1.png, id=74, 466.74374pt x 563.10374pt>
+File: img/Task4-1.png Graphic file (type png)
+<use img/Task4-1.png>
+Package pdftex.def Info: img/Task4-1.png  used on input line 712.
+(pdftex.def)             Requested size: 466.7426pt x 563.10237pt.
+
+Overfull \hbox (39.95125pt too wide) in paragraph at lines 712--713
+ [] 
+ []
+
+<img/Task4-2.png, id=75, 563.706pt x 339.06676pt>
+File: img/Task4-2.png Graphic file (type png)
+<use img/Task4-2.png>
+Package pdftex.def Info: img/Task4-2.png  used on input line 715.
+(pdftex.def)             Requested size: 450.96541pt x 271.25377pt.
+
+Overfull \hbox (24.17406pt too wide) in paragraph at lines 715--716
+ [] 
+ []
+
+[16 <./img/TASK4-1.png>]
 No file Report_LAB2_LG_LP.bbl.
-[15] (./Report_LAB2_LG_LP.aux) ) 
+[17 <./img/TASK4-2.png>] (./Report_LAB2_LG_LP.aux) ) 
 Here is how much of TeX's memory you used:
- 16653 strings out of 492639
- 284544 string characters out of 6133087
+ 16673 strings out of 492639
+ 284904 string characters out of 6133087
  845591 words of memory out of 5000000
- 20363 multiletter control sequences out of 15000+600000
+ 20379 multiletter control sequences out of 15000+600000
  572489 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,63p,825b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2018/texmf-dist/fonts/enc/dvips/bas
-e/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><c:/tex
-live/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-
-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type
-1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
-.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report_LAB2_LG_LP.pdf (17 pages, 741319 bytes).
+{c:/texlive/2018/texmf-dist
+/fonts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courie
+r/ucrb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/t
+exmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/ty
+pe1/urw/times/utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr
+i8a.pfb>
+Output written on Report_LAB2_LG_LP.pdf (19 pages, 867293 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 106 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
