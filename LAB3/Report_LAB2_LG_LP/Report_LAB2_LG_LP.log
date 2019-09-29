@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  22 SEP 2019 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  29 SEP 2019 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -647,71 +647,27 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 140.
 
 (c:/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 141.
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 164.
- [1] [2]
-<img/Task1.png, id=26, 614.295pt x 745.78625pt>
-File: img/Task1.png Graphic file (type png)
-<use img/Task1.png>
-Package pdftex.def Info: img/Task1.png  used on input line 247.
-(pdftex.def)             Requested size: 430.00356pt x 522.04683pt.
-
-Overfull \hbox (3.2122pt too wide) in paragraph at lines 247--248
- [] 
- []
-
-[3 <./img/Task1.png>] [4] [5]
-<img/Task2.png, id=38, 784.9325pt x 1778.645pt>
-File: img/Task2.png Graphic file (type png)
-<use img/Task2.png>
-Package pdftex.def Info: img/Task2.png  used on input line 353.
-(pdftex.def)             Requested size: 313.96744pt x 711.4454pt.
- [6 <./img/Task2.png>] [7] [8]
-<img/TASK3.png, id=49, 561.09625pt x 844.15375pt>
-File: img/TASK3.png Graphic file (type png)
-<use img/TASK3.png>
-Package pdftex.def Info: img/TASK3.png  used on input line 428.
-(pdftex.def)             Requested size: 448.87761pt x 675.32391pt.
-
-Overfull \hbox (22.08626pt too wide) in paragraph at lines 428--429
- [] 
- []
-
-[9 <./img/Task3.png>] [10] [11]
-<img/Task4.png, id=61, 687.56876pt x 634.37pt>
-File: img/Task4.png Graphic file (type png)
-<use img/Task4.png>
-Package pdftex.def Info: img/Task4.png  used on input line 517.
-(pdftex.def)             Requested size: 481.29485pt x 444.05597pt.
-
-Overfull \hbox (54.5035pt too wide) in paragraph at lines 517--518
- [] 
- []
-
+) [1] [2] [3] [4] [5]
+[6]
 No file Report_LAB2_LG_LP.bbl.
-[12 <./img/Task4.png>] (./Report_LAB2_LG_LP.aux) ) 
+[7] (./Report_LAB2_LG_LP.aux) ) 
 Here is how much of TeX's memory you used:
- 16650 strings out of 492639
- 284565 string characters out of 6133087
- 844594 words of memory out of 5000000
- 20358 multiletter control sequences out of 15000+600000
- 572489 words of font info for 62 fonts, out of 8000000 for 9000
+ 16546 strings out of 492639
+ 283260 string characters out of 6133087
+ 629594 words of memory out of 5000000
+ 20262 multiletter control sequences out of 15000+600000
+ 571131 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,12n,63p,825b,2056s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2018/texmf-dist/f
-onts/enc/dvips/base/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/
-ucrb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/t
-exlive/2018/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/tex
-mf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type
-1/urw/times/utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on Report_LAB2_LG_LP.pdf (14 pages, 823885 bytes).
+ 40i,12n,63p,825b,1501s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2018/texmf-dist/fonts/enc/dvips/base
+/8r.enc}<c:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texl
+ive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on Report_LAB2_LG_LP.pdf (9 pages, 628060 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
