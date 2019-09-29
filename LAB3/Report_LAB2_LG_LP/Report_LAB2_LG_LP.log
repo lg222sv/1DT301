@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  29 SEP 2019 18:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.13)  29 SEP 2019 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -653,14 +653,14 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 177.
  [1] [2] [3] [4] [5]
-[6] [7] [8] [9] [10] [11]
+[6] [7] [8] [9] [10] [11] [12] [13] [14]
 No file Report_LAB2_LG_LP.bbl.
-[12] (./Report_LAB2_LG_LP.aux) ) 
+[15] (./Report_LAB2_LG_LP.aux) ) 
 Here is how much of TeX's memory you used:
- 16634 strings out of 492639
- 284243 string characters out of 6133087
- 829591 words of memory out of 5000000
- 20346 multiletter control sequences out of 15000+600000
+ 16643 strings out of 492639
+ 284384 string characters out of 6133087
+ 845591 words of memory out of 5000000
+ 20355 multiletter control sequences out of 15000+600000
  572489 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,63p,825b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -670,10 +670,10 @@ live/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2018/texmf-
 dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2018/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Report_LAB2_LG_LP.pdf (14 pages, 681878 bytes).
+Output written on Report_LAB2_LG_LP.pdf (17 pages, 688609 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -535,32 +535,173 @@ This is the flowchart of the task 3:
 \begin{lstlisting}
 ;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ; 1DT301, Computer Technology I
-; Date: 2015-09-03
+; Date: 2019-09-29
 ; Author:
-; Student name 1
-; Student name 2
+; Loic GALLAND
+; Leonardo PEDRO
 ;
 ; Lab number: 3
 ; Title: How to use interrupts
 ;
 ; Hardware: STK600, CPU ATmega2560
 ;
-; Function: Describe the function of the program, so that you can understand it,
-; even if you're viewing this in a year from now!
+; Function: Same program as Task 3, but now there is another Interrupt to simulate the brakes. When breaking all the lights needs to be turned on.
+;			When blinking right LED7-4 light up and LED3-0 do Ring Counter to the right.
+;			When blinking left LED3-0 light up & LED7-4 do Ring Counter to the left.
+; Input ports: PORTD
 ;
-; Input ports: Describe the function of used ports, for example on-board switches
-; connected to PORTA.
-;
-; Output ports: Describe the function of used ports, for example on-board LEDs
-; connected to PORTB.
+; Output ports: PORTB
 ;
 ; Subroutines: If applicable.
 ; Included files: m2560def.inc
-;
-; Other information:
-;
-; Changes in program: (Description and date)
 ;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+.include "m2560def.inc"
+
+.org 0x00
+rjmp start
+
+.org INT0addr	;Address of Interrupt 0, used for blinking right.
+rjmp BlinkRight	
+
+.org INT1addr	;Address of Interrupt 1, used for normal lights.
+rjmp Normal_Interrupt
+
+.org INT2addr	;Address of Interrupt 2, used for the break lights.
+rjmp Press_Break
+
+.org INT3addr	;Address of Interrupt 3, used for blinking left.
+rjmp BlinkLeft
+
+.org 0x72
+
+start:
+; Initialize SP, Stack Pointer
+ldi r20, HIGH(RAMEND) ; R20 = high part of RAMEND address
+out SPH,R20 ; SPH = high part of RAMEND address
+ldi R20, low(RAMEND) ; R20 = low part of RAMEND address
+out SPL,R20 ; SPL = low part of RAMEND address
+
+ldi r20,0b10101010 ;Setting INT0-INT1-INT2-INT3 into falling edge
+sts EICRA,r20
+ldi r20,0b00001111 ;Enable INT0-INT1-INT2-INT3
+out EIMSK,r20
+
+ldi r17,0xFF	;Set PORTB as output
+out DDRB, r17
+
+ldi r17,0x00	;Set PORTD as input
+out DDRD,r17
+
+ldi r16, 0xFF	;Iniatialize the LEDs
+out PORTB, r16
+
+.def LED = r16	;Give the name "LED" to the register number 16
+.def Normal_Right = r22	;Give the name "Normal_Right" to the register number 22, will be used to simulate the left rear light
+ldi Normal_Right, 0b11000000
+.def Normal_Left = r21	;Give the name "Normal_Left" to the register number 21 will be used to simulate the right rear light
+ldi Normal_Left,0b00000011
+
+sei	;Global interrupt enable
+
+
+ldi r23, 1	;Variable to know in which configuration we are in.
+
+
+Main:
+	cpi r23,1	;If r23 = 1 then branch to NLED which is the normal LEDs:
+	breq NLED
+
+	cpi r23, 2	;If r23 = 2 then branch to BLeft which is the blinking to right.
+	breq BRight
+
+	cpi r23, 3	;If r23 = 3 then branch to BLeft which is the blinking to left.
+	breq BLeft
+rjmp Main
+
+NLED:
+	ldi LED, 0b00000000	;Load 0x00 into "LED", to "reset" it
+	ADD LED,Normal_Right	;Add both side of the rear lights with binary code
+	add LED,Normal_Left		; 0b11000011
+	mov r17,LED	;Copy the info from LED
+	COM r17	;One's complement of r17
+	out PORTB, r17
+rjmp Main
+
+BLeft: ;RING COUNTER
+	SBIS PORTB,PINB7 ;If the LED7 is on then reset the LEDs otherwise skip the next line
+		ldi LED,0b00010000
+	SBIC PORTB,PINB7	;If the LED7 is not on then Rotate otherwise skip the next line 
+		rol LED;Rotate to the left 
+	call Out_LED_Left	;call the method that will ouput to the LEDs
+	call Delay	;Delay of 0.5 sec
+rjmp main
+
+
+BRight:
+	SBIS PORTB,PINB0 ;If the LED0 is on then reset the LEDs otherwise skip the next line
+		ldi LED,0b00001000
+	SBIC PORTB,PINB0	;If the LED0 is not on then Rotate otherwise skip the next line 
+		ror LED	;Rotate to the left 
+	call Out_LED_Right	;call the method that will ouput to the LEDs
+	call Delay	;Delay of 0.5 sec
+rjmp main
+
+Out_LED_Right:	;To output to PORTB the LEDs when it is going to the right
+	mov r17,LED	;Copy the info from "LED" to r17
+	add r17,Normal_Right	;Add "Normal_Right" to r17
+	com r17	;One's Complement of r17. to switch the 0s into 1s 
+	out PORTB,r17
+RET	;Return to where the routine was called
+Out_LED_Left:	;To output to PORTB the LEDs when it is going to the left
+	mov r17,LED	;Copy the info from "LED" to r17
+	add r17,Normal_Left	;Add "Normal_Left" to r17
+	com r17	;One's Complement of r17. to switch the 0s into 1s 
+	out PORTB,r17
+RET	;Return to where the routine was called
+
+Normal_Interrupt:	;Interrupt for the normal lights
+ldi r23,1	;Load 1 into r23 to know later on in which program we are.
+ldi Normal_Right, 0b11000000	;Load the correct binary code to Normal Right
+ldi Normal_Left,0b00000011	;Load the correct binary code to Normal Left
+RETI	;Return to where the interrupt "interrupted"
+
+BlinkRight:	;Interrupt to when it's blinking right
+ldi r23, 2	;Load 2 into r23 to know later on in which program we are.
+ldi LED,0b00001000	;Initialise the LEDs
+ldi Normal_Right, 0b11000000
+ldi Normal_Left,0b00000011
+RETI	;Return to where the interrupt "interrupted"
+
+BlinkLeft:	;Interrupt to when it's blinking left
+ldi r23, 3	;Load 3 into r23 to know later on in which program we are.
+ldi LED,0b00010000
+ldi Normal_Right, 0b11000000
+ldi Normal_Left,0b00000011
+RETI	;Return to where the interrupt "interrupted"
+	
+Press_Break:	;Interrupt for when we are breaking
+	ldi Normal_Left,0b00001111
+	ldi Normal_Right,0b11110000
+RETI	;Return to where the interrupt "interrupted"
+		
+
+
+Delay:
+; Generated by delay loop calculator
+; at http://www.bretmulvey.com/avrdelay.html
+; Delay 500 000 cycles
+; 500ms at 1 MHz
+    ldi  r18, 3
+    ldi  r19, 138
+    ldi  r20, 86
+L1: dec  r20
+    brne L1
+    dec  r19
+    brne L1
+    dec  r18
+    brne L1
+    rjmp PC+1
+RET
 \end{lstlisting}
 
 \newpage

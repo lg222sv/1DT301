@@ -88,7 +88,7 @@ NLED:
 	ADD LED,Normal_Right	;Add both side of the rear lights with binary code
 	add LED,Normal_Left		; 0b11000011
 	mov r17,LED	;Copy the info from LED
-	COM r17
+	COM r17	;One's complement of r17
 	out PORTB, r17
 rjmp Main
 
@@ -97,7 +97,7 @@ BLeft: ;RING COUNTER
 		ldi LED,0b00010000
 	SBIC PORTB,PINB7	;If the LED7 is not on then Rotate otherwise skip the next line 
 		rol LED;Rotate to the left 
-	call Out_LED_Left
+	call Out_LED_Left	;call the method that will ouput to the LEDs
 	call Delay	;Delay of 0.5 sec
 rjmp main
 
@@ -107,46 +107,47 @@ BRight:
 		ldi LED,0b00001000
 	SBIC PORTB,PINB0	;If the LED0 is not on then Rotate otherwise skip the next line 
 		ror LED	;Rotate to the left 
-	call Out_LED_Right
+	call Out_LED_Right	;call the method that will ouput to the LEDs
 	call Delay	;Delay of 0.5 sec
 rjmp main
 
-Out_LED_Right:
-	mov r17,LED
-	add r17,Normal_Right
-	com r17
+Out_LED_Right:	;To output to PORTB the LEDs when it is going to the right
+	mov r17,LED	;Copy the info from "LED" to r17
+	add r17,Normal_Right	;Add "Normal_Right" to r17
+	com r17	;One's Complement of r17. to switch the 0s into 1s 
 	out PORTB,r17
-RET
-Out_LED_Left:
-	mov r17,LED
-	add r17,Normal_Left
-	com r17
+RET	;Return to where the routine was called
+Out_LED_Left:	;To output to PORTB the LEDs when it is going to the left
+	mov r17,LED	;Copy the info from "LED" to r17
+	add r17,Normal_Left	;Add "Normal_Left" to r17
+	com r17	;One's Complement of r17. to switch the 0s into 1s 
 	out PORTB,r17
-RET
-Normal_Interrupt:
-ldi r23,1
+RET	;Return to where the routine was called
+
+Normal_Interrupt:	;Interrupt for the normal lights
+ldi r23,1	;Load 1 into r23 to know later on in which program we are.
+ldi Normal_Right, 0b11000000	;Load the correct binary code to Normal Right
+ldi Normal_Left,0b00000011	;Load the correct binary code to Normal Left
+RETI	;Return to where the interrupt "interrupted"
+
+BlinkRight:	;Interrupt to when it's blinking right
+ldi r23, 2	;Load 2 into r23 to know later on in which program we are.
+ldi LED,0b00001000	;Initialise the LEDs
 ldi Normal_Right, 0b11000000
 ldi Normal_Left,0b00000011
-RETI
+RETI	;Return to where the interrupt "interrupted"
 
-BlinkRight:
-ldi r23, 2
-ldi LED,0b00001000
-ldi Normal_Right, 0b11000000
-ldi Normal_Left,0b00000011
-RETI
-
-BlinkLeft:
-ldi r23, 3
+BlinkLeft:	;Interrupt to when it's blinking left
+ldi r23, 3	;Load 3 into r23 to know later on in which program we are.
 ldi LED,0b00010000
 ldi Normal_Right, 0b11000000
 ldi Normal_Left,0b00000011
-RETI
+RETI	;Return to where the interrupt "interrupted"
 	
-Press_Break:
+Press_Break:	;Interrupt for when we are breaking
 	ldi Normal_Left,0b00001111
 	ldi Normal_Right,0b11110000
-RETI
+RETI	;Return to where the interrupt "interrupted"
 		
 
 
