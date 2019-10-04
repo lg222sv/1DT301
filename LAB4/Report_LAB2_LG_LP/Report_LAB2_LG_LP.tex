@@ -218,9 +218,10 @@ timer0_int:	;TIMER INTERRUPT
 	pop r16 ; restore register
 reti
 \end{lstlisting}
+\newpage
 This is the flowchart of the task 1:
 \begin{center}
-%\includegraphics[scale=0.7]{img/Task1.png}
+\includegraphics[scale=1]{img/Task1.png}
 \end{center}
 \newpage
 \section{Task 2 - Pulse Width Modulation (PWM)}
@@ -245,7 +246,7 @@ the change in duty cycle.}
 ; Hardware: STK600, CPU ATmega2560
 ;
 ; Function: Program that creates a Pulse Width Modulation using a timer interrupt. When clicking on buttons it will increase or decrease the amount of time in 1s that the LEDs will be on.
-;			When the Duty cycle is 50% then the LEDs are 0.5s ON and 0.5s OFF. If the Duty cycle is 20%, then the LEDs will be ON for 0.2s and OFF 0.8s.
+;			When the Duty cycle is 50 percent then the LEDs are 0.5s ON and 0.5s OFF. If the Duty cycle is 20 percent, then the LEDs will be ON for 0.2s and OFF 0.8s.
 ; 
 ; Input ports: PORTD to control the switches
 ;
@@ -363,7 +364,7 @@ RETI	;return from interrupt
 \newpage
 This is the flowchart of the task 2:
 \begin{center}
-%\includegraphics[scale=0.6]{img/Task2.png}
+\includegraphics[scale=0.8]{img/Task2.png}
 \end{center}
 
 \newpage
@@ -417,7 +418,7 @@ start:	;To initialize everything
 	sts UCSR1B, r16
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	sbrs r16,RXC1	;RXC1=1 -> new Character
 	rjmp GetChar	;RXC1=0 -> no character received
 	lds r18,UDR1	;Read character in UDR
@@ -428,15 +429,10 @@ Port_output:	;Show data on the LEDs
 	com r18	;COM again to make it normal 
 \end{lstlisting}
 
-\newpage
 This is the flowchart of the task 3:
 \begin{center}
-%\includegraphics[scale=1]{img/TASK3-1.png}
+\includegraphics[scale=0.7]{img/TASK3.png}
 \end{center}
-\begin{center}
-%\includegraphics[scale=0.9]{img/TASK3-2.png}
-\end{center}
-
 \newpage
 \section{Task 4 - Serial communication with echo}
 \textit{Modify the program in task 3 to obtain an echo, which means that the received character should
@@ -487,7 +483,7 @@ start:
 	sts UCSR1B, r16
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	sbrs r16,RXC1	;RXC1=1 -> new Character
 	rjmp GetChar	;RXC1=0 -> no character received
 	lds r18,UDR1	;Read character in UDR
@@ -498,23 +494,20 @@ Port_output:	;Show Data on LEDs
 	com r18
 
 PutChar:	;Show data back to the terminal
-	lds r16, UCSR1A	;Read UCSR1A i/O register to r20
+	lds r16, UCSR1A	;Read UCSR1A i/O register to r16
 	sbrs r16, UDRE1	;UDRE1 =1 => buffer is empty 
 	rjmp PutChar	;UDRE1 = 0 => buffer is not empty
 	sts UDR1,r18	;write character to UDR1
 	rjmp GetChar	;Return to loop
 \end{lstlisting}
 
-\newpage
+%\newpage
 This is the flowchart of the task 4:
 \begin{center}
-%\includegraphics[scale=1]{img/Task4-1.png}
-\end{center}
-\begin{center}
-%\includegraphics[scale=0.8]{img/Task4-2.png}
+\includegraphics[scale=0.7]{img/Task4.png}
 \end{center}
 \newpage
-\section{Task 4 - Serial communication using Interrupt}
+\section{Task 5 - Serial communication using Interrupt}
 \textit{Do task 3 and 4, but use Interrupt instead of polled UART.
 (USART, Rx Complete, USART Data Register Empty and
 USART, Tx Complete)}
@@ -576,7 +569,7 @@ nop		;Infinite loop that does nothing
 rjmp Main_loop
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	lds r18,UDR1	;Read character in UDR
 
 Port_output:	;Show data on the LEDs
@@ -585,19 +578,17 @@ Port_output:	;Show data on the LEDs
 	com r18
 
 PutChar:	;Sends back the character to the Terminal
-	lds r16, UCSR1A	;Read UCSR1A i/O register to r20
+	lds r16, UCSR1A	;Read UCSR1A i/O register to r16
 	sts UDR1,r18	;write character to UDR1
 RETI	;Return from interrupt
 \end{lstlisting}
 
-\newpage
+%\newpage
 This is the flowchart of the task 5:
 \begin{center}
-%\includegraphics[scale=1]{img/Task5-1.png}
+\includegraphics[scale=0.7]{img/Task5.png}
 \end{center}
-\begin{center}
-%\includegraphics[scale=0.8]{img/Task5-2.png}
-\end{center}
+
 % Prints your bibliography database xxx.bib
 \bibliographystyle{IEEEtran}
 \bibliography{ref.bib}
