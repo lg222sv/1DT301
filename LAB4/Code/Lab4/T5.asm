@@ -56,15 +56,15 @@ nop		;Infinite loop that does nothing
 rjmp Main_loop
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	lds r18,UDR1	;Read character in UDR
 
-Port_output:	;Show data on the LEDs
-	com r18
-	out PORTB,r18	;Write character to PORTB 
-	com r18
+	Port_output:	;Show data on the LEDs
+		com r18
+		out PORTB,r18	;Write character to PORTB 
+		com r18
 
-PutChar:	;Sends back the character to the Terminal
-	lds r16, UCSR1A	;Read UCSR1A i/O register to r20
-	sts UDR1,r18	;write character to UDR1
+	PutChar:	;Sends back the character to the Terminal
+		lds r16, UCSR1A	;Read UCSR1A i/O register to r16
+		sts UDR1,r18	;write character to UDR1
 RETI	;Return from interrupt

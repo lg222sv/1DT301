@@ -40,7 +40,7 @@ start:	;To initialize everything
 	sts UCSR1B, r16
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	sbrs r16,RXC1	;RXC1=1 -> new Character
 	rjmp GetChar	;RXC1=0 -> no character received
 	lds r18,UDR1	;Read character in UDR

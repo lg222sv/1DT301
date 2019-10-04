@@ -41,7 +41,7 @@ start:
 	sts UCSR1B, r16
 
 GetChar:	;Receive data
-	lds r16, UCSR1A	;read UCSR1A I/0 register to r20
+	lds r16, UCSR1A	;read UCSR1A I/0 register to r16
 	sbrs r16,RXC1	;RXC1=1 -> new Character
 	rjmp GetChar	;RXC1=0 -> no character received
 	lds r18,UDR1	;Read character in UDR
@@ -52,7 +52,7 @@ Port_output:	;Show Data on LEDs
 	com r18
 
 PutChar:	;Show data back to the terminal
-	lds r16, UCSR1A	;Read UCSR1A i/O register to r20
+	lds r16, UCSR1A	;Read UCSR1A i/O register to r16
 	sbrs r16, UDRE1	;UDRE1 =1 => buffer is empty 
 	rjmp PutChar	;UDRE1 = 0 => buffer is not empty
 	sts UDR1,r18	;write character to UDR1
