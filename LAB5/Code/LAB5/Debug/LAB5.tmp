@@ -1,0 +1,49 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega2560"</DEVICE>
+ <WORKING_DIR>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\AVR Tools\AvrAssembler2\Appnotes</DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m2560def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\Debug\LAB5.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>LAB5.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>LAB5.map</FILE>
+  <FILE>LAB5.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <reset><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>21</LINE></reset>
+  <GetChar><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>66</LINE></GetChar>
+  <init_disp><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>54</LINE></init_disp>
+  <power_up_wait><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>177</LINE></power_up_wait>
+  <write_nibble><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>151</LINE></write_nibble>
+  <short_wait><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>165</LINE></short_wait>
+  <write_cmd><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>139</LINE></write_cmd>
+  <clr_disp><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>126</LINE></clr_disp>
+  <next_line><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>86</LINE></next_line>
+  <Port_output><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>75</LINE></Port_output>
+  <write_char><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>136</LINE></write_char>
+  <PutChar><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>79</LINE></PutChar>
+  <END><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>122</LINE></END>
+  <FiveSec_delay><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>186</LINE></FiveSec_delay>
+  <long_wait><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>169</LINE></long_wait>
+  <loop><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>95</LINE></loop>
+  <continue_printing><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>102</LINE></continue_printing>
+  <Stop><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>110</LINE></Stop>
+  <write><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>141</LINE></write>
+  <switch_output><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>206</LINE></switch_output>
+  <wait_loop><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>181</LINE></wait_loop>
+  <dbnc_wait><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>173</LINE></dbnc_wait>
+  <L1><FILE>C:\Users\lg222sv\Documents\Atmel Studio\7.0\LAB5\LAB5\main.asm</FILE><LINE>194</LINE></L1>
+ </LABELS>
+</ASSEMBLER_INFO>
