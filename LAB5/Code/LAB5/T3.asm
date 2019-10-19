@@ -28,11 +28,6 @@ reset:
 	out DDRE, Temp			; port E = outputs ( Display JHD202A)
 	clr Temp				; r16 = 0
 	out PORTE, Temp	
-
-	ldi Temp,0xFF
-	out DDRB,Temp
-
-	out PORTB,Temp
 	
 	ldi r16, 23		;osc = 1.843MHz, 4800 bps => UBBRR = 23
 	sts UBRR1L , r16	;Store Prescaler value in UBRR1L
@@ -56,7 +51,6 @@ init_disp:
 	rcall write_cmd			; send command
 	rcall short_wait		; wait min. 39 us
 	
-		; loop forever
 call clr_disp
 
 GetChar:	;Receive data
@@ -66,7 +60,6 @@ GetChar:	;Receive data
 	lds r23,UDR1	;Read character in UDR
 
 	Port_output:
-		;call clr_disp
 		mov Data,r23
 		call write_char
 	PutChar:
