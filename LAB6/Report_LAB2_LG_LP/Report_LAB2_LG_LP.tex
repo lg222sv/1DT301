@@ -397,8 +397,8 @@ int main(void)
 		char a = text[i];
 		size_t length = strlen(begin);
 		
-		char* textToBeSent = malloc(length + 1 + 1); //Giving memory space to allocate the data to str2
-		strcpy(textToBeSent, begin); // copy txt to str2
+		char* textToBeSent = malloc(length + 1 + 1); //Giving memory space to allocate the data to textToBeSent
+		strcpy(textToBeSent, begin); // copy txt to textToBeSent
 		
 		textToBeSent[length] = a;  
 		textToBeSent[length + 1] = '\0'; // adding the end char \0
@@ -626,7 +626,7 @@ void refresh_text()
 
 \end{lstlisting}
 
-This is the flowchart of the task 4:
+This is the flowcharts of the task 4:
 \begin{center}
 \includegraphics[scale=0.5]{img/Task4.png}
 \end{center}
