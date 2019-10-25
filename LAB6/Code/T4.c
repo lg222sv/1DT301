@@ -1,14 +1,13 @@
-#include <avr/io.h>
-#include <stdio.h>
+
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include <avr/io.h>
 
+#define Card_CPU 1000000// Clock Speed
 
-
-#define F_CPU 1000000// Clock Speed
-#include <util/delay.h>
 #define BAUD 2400 //Communication Speed Display rate 2400
-#define MYUBBRR (F_CPU/16/BAUD-1) //UBBRR = 25 -> osc = 1MHz and UBRR = 47 -> osc = 1,843200MHz
+#define MYUBBRR (Card_CPU/16/BAUD-1) //UBBRR = 25 -> osc = 1MHz and UBRR = 47 -> osc = 1,843200MHz
 
 #define TOTAL_LINES 3 // change this to 8 for Task 5
 #define TOTAL_CHARS	24

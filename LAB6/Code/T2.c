@@ -1,10 +1,25 @@
-/*
- * LAB6.c
- *
- * Created: 2019-10-14 14:04:09
- * Author : lg222sv
- */ 
-
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; 1DT301, Computer Technology I
+; Date: 2019-10-20
+; Author:
+; Loic GALLAND
+; Leonardo PEDRO
+;
+; Lab number: 6
+; Title: CyberTech Wall Display
+;
+; Hardware: STK600, CPU ATmega2560
+;
+; Function: Write a program that writes characters on all text-lines on the CyberTech
+;			Display. 
+;			
+; Input ports: Port0 (RS232) VGA 
+;
+; Output ports: Port0 (RS232) VGA
+;
+; Subroutines: If applicable.
+; Included files: m2560def.inc
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #include <avr/io.h>
 #include <stdio.h>
 #include <string.h>
@@ -25,12 +40,10 @@ int main(void)
 	
 	toDisplayOnLCD(txt);
 	
-
-	
-	txt = "\rBO0001Third Line";
+	txt = "\rBO0001Third Line"; //Begining combination for the third line
 	toDisplayOnLCD(txt);
 	
-	txt = "\rZD0013C\n";
+	txt = "\rZD0013C\n"; //Ending combination to tell the display everything been sent.
 	toDisplayOnLCD(txt);
 	
 	return 0;
