@@ -26,7 +26,7 @@
 //#include <util/delay.h>
 #define FCPU 1000000// Clock Speed
 #define BAUD 2400 //Communication Speed Display rate 2400
-#define MYUBBRR (FCPU/16/BAUD-1) //UBBRR = 25 -> osc = 1MHz and UBRR = 47 -> osc = 1,843200MHz
+#define MYUBBRR (FCPU/16/BAUD-1) //UBBRR = 25 -> osc = 1MHz
 
 void uart_int(void);
 void toPutty(unsigned char data);

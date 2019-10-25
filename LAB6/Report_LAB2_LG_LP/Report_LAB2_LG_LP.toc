@@ -1,6 +1,7 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Task 1 - Write a program that displays a character on the display}{1}
-\contentsline {section}{\numberline {2}Task 2 - Electronic bingo machine}{5}
-\contentsline {section}{\numberline {3}Task 3 -Serial communication and display}{13}
-\contentsline {section}{\numberline {4}Task 4 - Modify the program in task 3}{17}
+\contentsline {section}{\numberline {1}Task 1 - Write a program that writes a character on the CyberTech Display}{1}
+\contentsline {section}{\numberline {2}Task 2 - Write a program that writes characters on all text-lines on the CyberTech Display}{4}
+\contentsline {section}{\numberline {3}Task 3 -Write a program that change text strings on the display}{7}
+\contentsline {section}{\numberline {4}Task 4 - Write a program that communicates with both the terminal and the display}{9}
+\contentsline {section}{\numberline {5}Task 5 - Write a program for text input. }{14}
