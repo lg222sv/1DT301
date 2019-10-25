@@ -4,184 +4,190 @@
 #include <string.h>
 #include <avr/io.h>
 
-#define Card_CPU 1000000// Clock Speed
+#define Card_CPU 1000000// Clock Speed of the CPU
 
-#define BAUD 2400 //Communication Speed Display rate 2400
-#define MYUBBRR (Card_CPU/16/BAUD-1) //UBBRR = 25 -> osc = 1MHz and UBRR = 47 -> osc = 1,843200MHz
-
-#define TOTAL_LINES 3 // change this to 8 for Task 5
-#define TOTAL_CHARS	24
-
-#define SEL_LINE '>' // Char for line selection
-
-
-#define Valid_Digits "12"
+#define BAUDRATE 2400 //Display rate of 2400
+#define MY_UBBRR (Card_CPU/16/BAUDRATE-1) //Baud Rate = 25 -> osc = 1MHz -> Display rate speed = 2400
+#define Valid_Digits "123"
+#define SELECT_LINE '>' // Char for line selection
+#define TOTAL_AMOUNT_CHARS	24
+#define TOTAL_AMOUNT_LINES 3 // change this to 8 for Task 5
 
 
-// "Global" variables
-int current_line = 0;
+int line = 0; //To keep track of the current line
 char line_selection = 0;
-char lines[8][TOTAL_CHARS] = { "", "", "", "", "", "", "", "" };
+char text[8][TOTAL_AMOUNT_CHARS] = { "", "", "", "", "", "", "", "" };
 
-// Forward declaration
-void initialize(void);
+//Declaration of the differents methods that will be used
+void toPutty(unsigned char);
 void uart_int(void);
-void toPutty(unsigned char data);
+void line_switch(int);
 char getChar();
-void toDisplayOnLCD(char address, char* specialCommand, char* stringChar);
-char string_contains(char*, char);
-void refresh_display(void);
-void change_line(int);
+char contains_character(char*, char);
+void refresh_text(void);
+void toSendToDisplay(char, char*, char*);
 
-// Entry point
+
 int main(void)
 {
-	uart_int();
-	refresh_display();
+	uart_int(); //Method to initialize the display
+	refresh_text();
 	
 	while (1) {
-		char in = getChar(); // Get input
+		//Get the input from PuTTY
+		char input = getChar(); 
 
-		// Pharse the input - if selecting line, anticipate a [vaild] digit
-		if (line_selection) {
-			if (in < '1') continue; // if smaller than 0, ignore
+		
+		if (line_selection) {//If the line selection is selected then do nothing and wait for a line number
+			if (input < '1') {
+				//if the input is lower than 1 than do nothing and wait for another input
+				continue; 
+			}
+			//Check if the input is included in the valid digits if it is then go inside if otherwise skip the if statement
+			if (contains_character(Valid_Digits, input)) {
 
-			// Does 'in' exist in VAILD_DIGITS? (Is 'in' a vaild digit?)
-			if (string_contains(Valid_Digits, in)) {
-				change_line((in - '1')); // turn the input into a sterile integer before passing to function
 				line_selection = 0;
+				line_switch((input - '1')); // turn the input into sterile int
+				
 			}
-		}
+		} //if there is no line selection then the code goes here
 		else {
-			// Select line
-			if (in == SEL_LINE)
-			line_selection = 1;
-			// End of line
-			else if (in == 13 )// increment
-			change_line(-1); // increment
-			// Normal appending
-			else {
-				// Else add character to end of selected line
-				char* line = lines[current_line];
-				sprintf(line, "%s%c", line, in);
+			//if the input is equal to '>' then change the line_selection to 1 (true)
+			if (input == SELECT_LINE){
+
+				line_selection = 1;
+
+			}else if (input == 13 ){ //Otherwise if the input is the carriage return(ENTER) then switch line
+			
+				line_switch(-1);
+			
+			}else {
+				//Otherwise add the character to the corresponding lane
+				char* line = text[line];
+				sprintf(line, "%s%c", line, input);
 			}
 		}
-
-		refresh_display(); // Update the screen
+		//Update the screen with with the corresponding changes 
+		refresh_text();
 	}
 
 	return 0;
 }
 
-
-//INITALIZATION OF THE DISPLAY
-
+//
 void toPutty(unsigned char data){
-	//WAIT FOR DATA TO BE RECEIVED and SHOW IT
-	while(!(UCSR1A & (1<<UDRE1)));
-	UDR1 = data;
+	
+	while(!(UCSR1A & (1<<UDRE1))){
+		//Do nothing while no data has been sent
+	}
+	UDR1 = data; 
 }
 
+//To initialize the display
 void uart_int(void) {
-	UBRR1L = MYUBBRR; //25 because we are setting the board at 1MHz
-	/*Enable receiver and transmitter*/
-	UCSR1B = (1<<RXEN1|1<<TXEN1); // Receive Enable (RXEN) bit // Transmit Enable (TXEN) bit
+	UBRR1L = MY_UBBRR; //Set the Baud Rate to 25. 
+
+	UCSR1B = (1<<RXEN1|1<<TXEN1); //Enable Receive and Transmit bit
 }
 
 char getChar(){
 	
-	while(!(UCSR1A & (1<<RXC1)));
-	return UDR1;
+	while(!(UCSR1A & (1<<RXC1))){
+		//While no data has been receive, do nothing
+	}
+	return UDR1; //return the received char.
 }
 
 
-//METHOD TO DISPLAY ON THE SCREEN
-void toDisplayOnLCD(char address, char* specialCommand, char* stringChar)
+//Method to send the characters to the Display
+void toSendToDisplay(char address, char* command, char* message)
 {
-	// Get lengths
-	int cmd_length = sizeof(specialCommand);
-	int msg_length = sizeof(stringChar);
+	// Get the lengths of the command characters and of the message
+	int command_length = sizeof(command);
+	int message_length = sizeof(message);
 
-	// Calculate and allocate memory for buffer string
-	int buffer_size = 1 + cmd_length + msg_length + 3;
-	char* buffer = malloc(buffer_size*sizeof(char));
+	// Calculate how big the buffer needs to be depending on the message, command. 
+	int buffer_length = 1 + command_length + message_length + 3;
 
-	// Assemble the frame (payload)
-	sprintf(buffer, "\r%c%s%s", address, specialCommand, stringChar);
+	//Will add the adress + command + message + checksum, together to then send it to the screen 
+	char* buffer_message = malloc(buffer_length);
 
-	// Calculate the checksum
+	//Create the buffer with all the info needed
+	sprintf(buffer_message, "\r%c%s%s", address, command, message);
+
+	//Checksum calculation 
 	unsigned int checksum = 0;
-	for (int i = 0; (buffer[i] != 0); i++){
-		checksum += buffer[i];
+	for (int i = 0; (buffer_message[i] != 0); i++){
+		checksum += buffer_message[i];
 	}
 	
 	
 	checksum %= 256;
 
-	// Final assembly of string
-	sprintf(buffer, "%s%02X\n", buffer, checksum);
+	//Add the checksum to the buffer
+	sprintf(buffer_message, "%s%02X\n", buffer_message, checksum);
 
-	// Send all chars in string
-	for (int i = 0; buffer[i]; i++){
-		toPutty(buffer[i]);
+	//
+	for (int i = 0; buffer_message[i]; i++){
+		toPutty(buffer_message[i]);
 	}
 	
-
-	free(buffer); // we are done with the buffer
+	//To free the space from memory
+	free(buffer_message); 
 }
 
-//
-// string_contains
-// Checks string for target char 'c', returns 1 (true) if found, otherwise 0 (false)
-//
-char string_contains(char* string, char c)
+//Method to check if the char "character" is in the "string". If it is return 1 otherwise return 0.
+char contains_character(char* string, char character)
 {
 	char t;
-	while ((t = *string++))
-	if (t == c) return 1;
+	while ((t = *string++)){
+		if (t == character) {
+			return 1;
+		}
+	}
 	return 0;
 }
 
-//TO UPDATE
-void refresh_display()
+//Method to change between each line. if "-1" is sent then it will change the line. 
+void line_switch(int number)
 {
-	// Set up lines to show
-	int display_line = current_line;
-	if (display_line < 1)
-	display_line++;
+	//if numver =-1 then increment the current line
+	if (number == -1) {
+		line++;
+		if (line >= TOTAL_AMOUNT_LINES)
+		line = 0;
+	}else {
+		line = number;
+	}
 	
-	// Set up variables necessary for the first & second display line
-	char memory_space_A[48] = "";
-	char line_selected = line_selection ? '_' : (current_line + '1');
-
-	// Assemble the header line then copy line 1 to end
-	//			 ******** - 24 char limit
-	sprintf(memory_space_A, "Choose input: %c         %s", line_selected, lines[display_line-1]);
-
-	// Set up the third display line, then copy chars from memory to it
-	char memory_space_B[48] = " ";
-	if (lines[display_line][0]) // Is selected string just a '\0'? If true; do nothing
-	for (int i = 0; i < 48; i++)
-	memory_space_B[i] = lines[display_line][i];
-
-	// Boardcast all changes and then update the screen
-	toDisplayOnLCD('A', "O0001", memory_space_A);
-	toDisplayOnLCD('B', "O0001", memory_space_B);
-	toDisplayOnLCD('Z', "D001", 0);
 }
 
-//
-// change_line
-// Increments (when target is -1) or sets current_line to 'target' line
-//
-void change_line(int target)
+//TO UPDATE
+void refresh_text()
 {
-	// increment
-	if (target == -1) {
-		current_line++;
-		if (current_line >= TOTAL_LINES)
-		current_line = 0;
+	//To have the line to display
+	int lineToDisplay = line;
+	if (lineToDisplay < 1){
+	lineToDisplay++;
 	}
-	else // change to selection
-	current_line = target;
+	// variable to set up the first and second line 
+	char memory_ligne1_2[48] = "";
+	char line_selected = line_selection ? '_' : (line + '1');
+
+	
+	sprintf(memory_ligne1_2, "Choose line: %c          %s", line_selected, text[lineToDisplay-1]);
+
+	// Creates the third ligne 
+	char memory_ligne3[48] = " ";
+	if (text[lineToDisplay][0]){ //if the character is "0" do nothing otherwise send to "toSendToDisplay"
+		//DO nothing
+	}else { 
+		for (int i = 0; i < 48; i++){
+			memory_ligne3[i] = text[lineToDisplay][i];
+		}
+	}
+	// Updates all the lignes of the screen. 
+	toSendToDisplay('A', "O0001", memory_ligne1_2);
+	toSendToDisplay('B', "O0001", memory_ligne3);
+	toSendToDisplay('Z', "D001", 0);
 }
